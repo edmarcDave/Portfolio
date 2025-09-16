@@ -1,3 +1,7 @@
+.about-card-period, .about-card-location {
+  color: rgba(45, 58, 34, 0.6);
+  font-size: 0.98em;
+}
 /* Certification Card Styles */
 .certification-card {
   background: #A5C882;
