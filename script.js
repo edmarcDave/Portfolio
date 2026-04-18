@@ -91,6 +91,67 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     setActiveLink(); // Initial call
+
+    // Projects carousel controls
+    const projectsCarousel = document.querySelector('.projects-carousel');
+    if (projectsCarousel) {
+        const viewport = projectsCarousel.querySelector('.projects-viewport');
+        const track = projectsCarousel.querySelector('.projects-track');
+        const slides = Array.from(projectsCarousel.querySelectorAll('.project-slide'));
+        const prevBtn = projectsCarousel.querySelector('.carousel-btn.prev');
+        const nextBtn = projectsCarousel.querySelector('.carousel-btn.next');
+        const dotsContainer = document.querySelector('.carousel-dots');
+        let currentSlide = 0;
+
+        function clampIndex(index) {
+            if (index < 0) return slides.length - 1;
+            if (index >= slides.length) return 0;
+            return index;
+        }
+
+        function setActiveSlide(index) {
+            currentSlide = clampIndex(index);
+            const activeSlide = slides[currentSlide];
+            const targetOffset = activeSlide.offsetLeft - ((viewport.clientWidth - activeSlide.clientWidth) / 2);
+            track.style.transform = `translateX(${-targetOffset}px)`;
+
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('is-active', i === currentSlide);
+            });
+
+            if (dotsContainer) {
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('is-active', i === currentSlide);
+                    dot.setAttribute('aria-selected', i === currentSlide ? 'true' : 'false');
+                });
+            }
+        }
+
+        if (dotsContainer) {
+            dotsContainer.innerHTML = '';
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'carousel-dot';
+                dot.setAttribute('aria-label', `Go to project ${index + 1}`);
+                dot.setAttribute('aria-selected', 'false');
+                dot.addEventListener('click', () => setActiveSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => setActiveSlide(currentSlide - 1));
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => setActiveSlide(currentSlide + 1));
+        }
+
+        window.addEventListener('resize', () => setActiveSlide(currentSlide));
+        setActiveSlide(0);
+    }
 });
 
 // Certifications toggle functionality
@@ -105,7 +166,7 @@ function toggleCertifications() {
             // Hide expanded certifications
             expandedSection.classList.remove('show');
             expandedSection.style.display = 'none';
-            if (btnText) btnText.textContent = 'Show all 18 certifications';
+            if (btnText) btnText.textContent = 'Show all 22 certifications';
             if (btnIcon) btnIcon.className = 'bx bx-chevron-down btn-icon';
             if (showAllBtn) showAllBtn.classList.remove('expanded');
         } else {
