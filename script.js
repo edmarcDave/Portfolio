@@ -152,6 +152,32 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('resize', () => setActiveSlide(currentSlide));
         setActiveSlide(0);
     }
+
+    // Fullscreen Image Lightbox for project screenshots
+    const projectImages = document.querySelectorAll('.project-media img');
+    projectImages.forEach(img => {
+        img.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const modal = document.createElement('div');
+            modal.className = 'project-image-modal';
+            modal.innerHTML = `
+                <div class="modal-backdrop"></div>
+                <div class="modal-content">
+                    <button class="modal-close" type="button" aria-label="Close modal">&times;</button>
+                    <img src="${this.src}" alt="${this.alt}" />
+                </div>
+            `;
+            document.body.appendChild(modal);
+            requestAnimationFrame(() => modal.classList.add('active'));
+
+            const closeModal = () => {
+                modal.classList.remove('active');
+                setTimeout(() => modal.remove(), 250);
+            };
+            modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+            modal.querySelector('.modal-close').addEventListener('click', closeModal);
+        });
+    });
 });
 
 // Certifications toggle functionality
