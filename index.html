@@ -242,92 +242,79 @@
   <section id="projects">
     <div class="section-content">
       <h2>Projects</h2>
-      <div class="projects-carousel" aria-label="Projects carousel">
-        <button class="carousel-btn prev" type="button" aria-label="Previous project">
-          <i class="bx bx-chevron-left"></i>
-        </button>
-
-        <div class="projects-viewport">
-          <div class="projects-track">
-            <article class="project-slide" data-project-index="0">
-              <div class="project-media">
-                <img src="images/portfolio-screenshot.png" alt="Portfolio Website Screenshot" />
-              </div>
-              <div class="project-details">
-                <h3>Portfolio Website</h3>
-                <p>My personal portfolio website showcasing my projects, skills, and experience. Features a clean, responsive design with smooth animations.</p>
-                <div class="project-tech">
-                  <span><i class="bx bxl-html5"></i> HTML</span>
-                  <span><i class="bx bxl-css3"></i> CSS</span>
-                  <span><i class="bx bxl-javascript"></i> JavaScript</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/edmarcDave/Portfolio" class="project-btn" target="_blank" rel="noopener"><i class="bx bxl-github"></i> Source Code</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-slide" data-project-index="1">
-              <div class="project-media">
-                <img src="images/foodamstra-screenshot.png" alt="Foodamstra Project Screenshot" />
-              </div>
-              <div class="project-details">
-                <h3>Foodamstra</h3>
-                <p>A recipe website that helps users discover and share delicious recipes. Features include recipe search, categories, and user submissions.</p>
-                <div class="project-tech">
-                  <span><i class="bx bxl-html5"></i> HTML</span>
-                  <span><i class="bx bxl-css3"></i> CSS</span>
-                  <span><i class="bx bxl-javascript"></i> JavaScript</span>
-                </div>
-                <div class="project-links">
-                  <button class="project-btn disabled" disabled><i class="bx bx-revision"></i> Revamp in Progress</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-slide" data-project-index="2">
-              <div class="project-media">
-                <img src="images/finance-tracker-screenshot.png" alt="Where My Money Goes Personal Finance Tracker Screenshot" />
-              </div>
-              <div class="project-details">
-                <h3>Where My Money Goes?</h3>
-                <p>A personal finance tracker giving full visibility over cash flow, multi-account tracking, debt & loan ledgers, savings goals, and visual analytics.</p>
-                <div class="project-tech">
-                  <span><i class="bx bxl-react"></i> React</span>
-                  <span><i class="bx bxl-typescript"></i> TypeScript</span>
-                  <span><i class="bx bxl-tailwind-css"></i> Tailwind</span>
-                </div>
-                <div class="project-links">
-                  <button class="project-btn disabled" disabled><i class="bx bx-lock-alt"></i> Personal Project</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-slide" data-project-index="3">
-              <div class="project-media in-development">
-                <img src="images/TuroTugma-Snapshot.png" alt="TuroTugma Schedule Maker preview" />
-              </div>
-              <div class="project-details">
-                <h3>TuroTugma</h3>
-                <p>An automated scheduling system for teaching faculty subject load management at Diadi National High School, built to support balanced workload distribution and efficient class assignments.</p>
-                <div class="project-tech">
-                  <span><i class="bx bxl-react"></i> React</span>
-                  <span><i class="fa-brands fa-laravel"></i> Laravel</span>
-                  <span><i class="bx bxl-tailwind-css"></i> Tailwind</span>
-                </div>
-                <div class="project-links">
-                  <button class="project-btn disabled" disabled><i class="bx bx-time"></i> In Development</button>
-                </div>
-              </div>
-            </article>
+      <div class="projects-gallery">
+        <article class="project-gallery-card">
+          <div class="project-media">
+            <img src="images/portfolio-screenshot.png" alt="Portfolio Website Screenshot" />
           </div>
-        </div>
+          <div class="project-details">
+            <h3>Portfolio Website</h3>
+            <p>My personal portfolio website showcasing my projects, skills, and experience. Features a clean, responsive design with smooth animations.</p>
+            <div class="project-tech">
+              <span><i class="bx bxl-html5"></i> HTML</span>
+              <span><i class="bx bxl-css3"></i> CSS</span>
+              <span><i class="bx bxl-javascript"></i> JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/edmarcDave/Portfolio" class="project-btn" target="_blank" rel="noopener"><i class="bx bxl-github"></i> Source Code</a>
+            </div>
+          </div>
+        </article>
 
-        <button class="carousel-btn next" type="button" aria-label="Next project">
-          <i class="bx bx-chevron-right"></i>
-        </button>
+        <article class="project-gallery-card">
+          <div class="project-media">
+            <img src="images/foodamstra-screenshot.png" alt="Foodamstra Project Screenshot" />
+          </div>
+          <div class="project-details">
+            <h3>Foodamstra</h3>
+            <p>A recipe website that helps users discover and share delicious recipes. Features include recipe search, categories, and user submissions.</p>
+            <div class="project-tech">
+              <span><i class="bx bxl-html5"></i> HTML</span>
+              <span><i class="bx bxl-css3"></i> CSS</span>
+              <span><i class="bx bxl-javascript"></i> JavaScript</span>
+            </div>
+            <div class="project-links">
+              <button class="project-btn disabled" disabled><i class="bx bx-revision"></i> Revamp in Progress</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-gallery-card">
+          <div class="project-media">
+            <img src="images/finance-tracker-screenshot.png" alt="Where My Money Goes Personal Finance Tracker Screenshot" />
+          </div>
+          <div class="project-details">
+            <h3>Where My Money Goes?</h3>
+            <p>A personal finance tracker giving full visibility over cash flow, multi-account tracking, debt & loan ledgers, savings goals, and visual analytics.</p>
+            <div class="project-tech">
+              <span><i class="bx bxl-react"></i> React</span>
+              <span><i class="bx bxl-typescript"></i> TypeScript</span>
+              <span><i class="bx bxl-tailwind-css"></i> Tailwind</span>
+            </div>
+            <div class="project-links">
+              <button class="project-btn disabled" disabled><i class="bx bx-lock-alt"></i> Personal Project</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-gallery-card">
+          <div class="project-media">
+            <img src="images/TuroTugma-Snapshot.png" alt="TuroTugma Schedule Maker preview" />
+          </div>
+          <div class="project-details">
+            <h3>TuroTugma</h3>
+            <p>An automated scheduling system for teaching faculty subject load management at Diadi National High School, built to support balanced workload distribution and efficient class assignments.</p>
+            <div class="project-tech">
+              <span><i class="bx bxl-react"></i> React</span>
+              <span><i class="fa-brands fa-laravel"></i> Laravel</span>
+              <span><i class="bx bxl-tailwind-css"></i> Tailwind</span>
+            </div>
+            <div class="project-links">
+              <button class="project-btn disabled" disabled><i class="bx bx-time"></i> In Development</button>
+            </div>
+          </div>
+        </article>
       </div>
-      <div class="carousel-dots" aria-label="Projects pagination"></div>
     </div>
   </section>
   <section id="certifications">

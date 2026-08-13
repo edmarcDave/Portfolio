@@ -3178,216 +3178,159 @@ html::-webkit-scrollbar {
   display: none;
 }
 
-/* Projects carousel layout override */
+/* Projects Section - Gallery Showcase Layout */
 #projects {
   height: auto !important;
-  overflow: visible;
+  min-height: calc(100vh - var(--navbar-height));
+  padding: 3.5rem 0 4rem;
+  overflow: visible !important;
 }
 
 #projects .section-content {
-  max-width: 1260px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-#projects .projects-carousel {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  margin: 1rem auto 0.6rem;
+#projects .projects-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  gap: 2.2rem;
+  margin-top: 2rem;
+  width: 100%;
 }
 
-#projects .projects-viewport {
-  width: min(980px, 88vw);
-  overflow: hidden;
-  padding: 0.45rem 0;
-}
-
-#projects .projects-track {
-  display: flex;
-  align-items: stretch;
-  gap: 1rem;
-  transition: transform 0.45s ease;
-  will-change: transform;
-}
-
-#projects .project-slide {
-  flex: 0 0 min(760px, 72vw);
+.project-gallery-card {
+  background: rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 18px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  box-shadow: 0 12px 28px rgba(28, 46, 18, 0.16);
-  opacity: 0.62;
-  transform: scale(0.92);
-  transition: transform 0.35s ease, opacity 0.35s ease;
-}
-
-#projects .project-slide.is-active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-#projects .project-media {
-  height: clamp(280px, 38vw, 430px);
-  overflow: hidden;
-  background: #172118;
-  position: relative;
+  box-shadow: 0 10px 30px rgba(45, 58, 34, 0.12);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(45, 58, 34, 0.22);
+}
+
+.project-gallery-card .project-media {
+  width: 100%;
+  aspect-ratio: 16 / 9.5;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
   cursor: pointer;
 }
 
-#projects .project-media img {
+.project-gallery-card .project-media img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: top center;
   display: block;
-  padding: 0.3rem;
-  transition: transform 0.35s ease;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.45s ease;
 }
 
-#projects .project-slide:hover .project-media img {
-  transform: scale(1.02);
+.project-gallery-card:hover .project-media img {
+  transform: scale(1.04);
 }
 
-#projects .project-details {
-  padding: 0.8rem 0.95rem 0.95rem;
+.project-gallery-card .project-details {
+  padding: 1.3rem 1.6rem 1.6rem;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  flex-grow: 1;
+  gap: 0.65rem;
 }
 
-#projects .project-details h3 {
+.project-gallery-card .project-details h3 {
   color: #1f2e2a;
-  font-size: clamp(1.15rem, 1.8vw, 1.65rem);
-  line-height: 1.2;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.25;
 }
 
-#projects .project-details p {
+.project-gallery-card .project-details p {
   color: #23243a;
-  font-size: clamp(0.9rem, 1.15vw, 1rem);
-  line-height: 1.4;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  line-height: 1.5;
+  flex-grow: 1;
 }
 
-#projects .project-tech {
+.project-gallery-card .project-tech {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 0.1rem;
+  margin-top: 0.3rem;
 }
 
-#projects .project-tech span {
+.project-gallery-card .project-tech span {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.35rem 0.7rem;
+  padding: 0.38rem 0.75rem;
   border-radius: 999px;
   background: rgba(45, 58, 34, 0.12);
   color: #2d3a22;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
-#projects .project-links {
-  margin-top: 0.15rem;
+.project-gallery-card .project-links {
+  margin-top: 0.5rem;
   display: flex;
   justify-content: flex-start;
 }
 
-#projects .project-btn {
-  min-width: 150px;
-  padding: 0.58rem 1rem;
-  border-radius: 999px;
-  font-size: 0.82rem;
-}
-
-#projects .carousel-btn {
-  width: 42px;
-  height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.52);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.38);
-  color: #24331b;
+.project-gallery-card .project-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-#projects .carousel-btn i {
-  font-size: 1.35rem;
-}
-
-#projects .carousel-btn:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.58);
-}
-
-#projects .carousel-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.55rem;
-  margin-top: 0.2rem;
-}
-
-#projects .carousel-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(45, 58, 34, 0.35);
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-#projects .carousel-dot.is-active {
-  transform: scale(1.25);
+  gap: 0.4rem;
+  min-width: 140px;
+  padding: 0.58rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
   background: #2d3a22;
+  color: #fff;
+  transition: all 0.25s ease;
 }
 
-@media (max-width: 900px) {
-  #projects .projects-viewport {
-    width: min(98vw, 760px);
-  }
-
-  #projects .project-slide {
-    flex-basis: min(92vw, 640px);
-  }
-
-  #projects .project-media {
-    height: clamp(240px, 42vw, 350px);
-  }
-
-  #projects .carousel-btn {
-    width: 36px;
-    height: 36px;
-  }
-
-  #projects .project-links {
-    justify-content: center;
-  }
+.project-gallery-card .project-btn:hover {
+  background: #A5C882;
+  color: #2d3a22;
 }
 
-@media (max-width: 600px) {
-  #projects .projects-carousel {
-    gap: 0.35rem;
+.project-gallery-card .project-btn.disabled {
+  background: #2d3a22;
+  cursor: not-allowed;
+  color: #fff;
+  opacity: 0.82;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  #projects .projects-gallery {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
   }
 
-  #projects .project-slide {
-    flex-basis: 94vw;
+  .project-gallery-card .project-media {
+    aspect-ratio: 16 / 10;
   }
 
-  #projects .project-media {
-    height: clamp(210px, 55vw, 300px);
+  .project-gallery-card .project-details {
+    padding: 1.1rem 1.25rem 1.35rem;
   }
-
-  #projects .project-details {
-    padding: 0.85rem 0.85rem 1rem;
-  }
+}
 
   #projects .project-tech span {
     font-size: 0.76rem;
